@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 
 // Middleware
@@ -12,5 +13,19 @@ app.get("/", (req, res) => {
 
 // Server
 app.listen(3000, () => {
-    console.log("Server running on port 3000");
+    console.log("Server is up and running...");
 });
+
+/* MongoDB Connection */
+/* mongoose.set("strictQuery", false);
+console.log("Server is starting... Connecting to MongoDB...");
+mongoose.connect("mongodb://user:password@localhost:27017/dbname")
+    .then(() => {
+        console.log("MongoDB connected...")
+        app.listen(3000, () => {
+            console.log("Server is up and running...")
+        });
+    })
+    .catch((error) => {
+        console.log("An error occurred trying to run the app...\n" + error);
+    }); */
