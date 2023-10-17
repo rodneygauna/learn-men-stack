@@ -12,4 +12,4 @@ COPY . /app
 EXPOSE 3000
 
 # Run the app
-CMD ["npm", "run", "dev"]
+CMD ["node", "app.js"]
