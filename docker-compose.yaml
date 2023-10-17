@@ -1,10 +1,8 @@
 # Docker-Compose
 version: '3'
-
 services:
-  app-api:
+  node-api-app:
+    container_name: node-api-app
     build: .
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
