@@ -1,8 +1,19 @@
 # Docker-Compose
 version: '3'
+
 services:
-  node-api-app:
-    container_name: node-api-app
-    build: .
+  backend:
+    build: ./backend
     ports:
-      - "3000:3000"
+      - 3001:3001
+    environment:
+      DB_URL: mongodb://mongo/learn-mean-stack
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - learn-men-stack: /data/db
+
+volumes:
+  learn-men-stack:
