@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: build run up stop clean logs bash
+.PHONY: build run up stop clean logs sh ps
 
 # Docker-related variables
 DOCKER_COMPOSE = docker-compose
@@ -11,7 +11,7 @@ build:
 
 # Run the Docker container
 run:
-	$(DOCKER_COMPOSE) up
+	$(DOCKER_COMPOSE) up -d
 
 # Build and run the Docker container
 up:
@@ -23,12 +23,16 @@ stop:
 
 # Clean up Docker images and volumes
 clean:
-	$(DOCKER_COMPOSE) down -v --rmi all
+	$(DOCKER_COMPOSE) down --rmi all
 
 # View the logs
 logs:
 	$(DOCKER_COMPOSE) logs --tail=100 -f
 
-# Container bash
-bash:
-	$(DOCKER_COMPOSE) exec app /bin/bash
+# Container sh
+sh:
+	$(DOCKER_COMPOSE) exec backend sh
+
+# Container ps
+ps:
+	$(DOCKER_COMPOSE) ps
