@@ -8,12 +8,14 @@ services:
       - 3001:3001
     environment:
       DB_URL: mongodb://mongo/learn-mean-stack
+    depends_on:
+      - mongo
   mongo:
     image: mongo
     ports:
       - 27017:27017
     volumes:
-      - learn-men-stack: /data/db
+      - learn-men-stack:/data/db
 
 volumes:
   learn-men-stack:

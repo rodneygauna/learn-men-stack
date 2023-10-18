@@ -2,10 +2,6 @@
 # NodeJS and Alpine image
 FROM node:20-alpine3.18
 
-# Alpine group and user
-RUN addgroup app && adduser -S -G app app
-USER app
-
 # Set the working directory
 WORKDIR /app
 
